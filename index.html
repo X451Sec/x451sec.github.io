@@ -10,7 +10,145 @@
 </head>
 <body>
 <pre><code>
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
 
+int main()
+{
+    int p,x;
+    char nm[100],no[100]; /* [100] artinya karakter maksimal berjumlah 100*/
+    float hk,gk,k,tg;
+    /*
+    variabel
+    p   = posisi,
+    nm  = nama,
+    no  = nomor identitas pegawai,
+    hk  = hari kerja,
+    gk  = gaji kotor,
+    k   = asuransi kesehatan,
+    tg  = total gaji yang diterima
+    */
+
+    printf("\t\t =================================================== \n\n");
+    printf("\t\t\t Program Perhitungan Gaji Karyawan \n\n");
+    printf("\t\t\t\t Sabhila e-Sports \n\n");
+    printf("\t\t =================================================== \n\n");
+    printf("\t\t Masukan Nama Pegawai            : ");gets(nm); /*gets digunakan agar bisa membaca spasi dalam kalimat*/
+    printf("\t\t Masukan Nomor Identitas Pegawai : ");gets(no);
+    printf("\n\t\t Posisi Kerja Bapak/Ibu/Saudara/i %s sebagai : ",nm); /* tanda %s memanggil dan meletakan nama(nm)*/
+    printf("\n\t\t   1. Team Manager");
+    printf("\n\t\t   2. Marketing");
+    printf("\n\t\t   3. Creative");
+    printf("\n\t\t   4. Player");
+    printf("\n\n\t\t Masukan Pilihan Jabatan Anda di Sabhila e-Sports = ");scanf("%d",&p);
+
+    /*
+    switch = untuk membaca nomer pilihan jabatan yang dimasukan
+    case   = untuk menampilkan sesuai data switch
+    break  = sebagai akhiran dari tiap case
+    */
+
+    printf("\n\t\t Nama Pegawai            : %s\n",nm);
+    printf("\n\t\t Nomer Identitas Pegawai : %s",no);
+    switch(p){
+
+    case 1:
+    printf("\n\t\t Jabatan                 : Team Manager\n\n");
+    printf("\n\t\t Upah harian anda adalah : Rp    500000");
+    printf("\n\t\t Asuransi Kesehatan      : Rp   5000000");
+    break;
+
+    case 2:
+    printf("\n\t\t Jabatan                 : Marketing\n\n");
+    printf("\n\t\t Upah harian anda adalah : Rp    350000");
+    printf("\n\t\t Asuransi Kesehatan      : Rp   3500000");
+    break;
+
+    case 3:
+    printf("\n\t\t Jabatan                 : Creative\n\n");
+    printf("\n\t\t Upah harian anda adalah : Rp    183000");
+    printf("\n\t\t Asuransi Kesehatan      : Rp   1830000");
+    break;
+
+    case 4:
+    printf("\n\t\t Jabatan                 : Player\n\n");
+    printf("\n\t\t Upah harian anda adalah : Rp    283000");
+    printf("\n\t\t Asuransi Kesehatan      : Rp   2830000");
+    break;
+    default:
+
+    /*
+    default = jika case posisi pegawai selain angka 1 - 4 akan muncul dibawah ini
+    */
+        printf ("\n\n\t\t IDENTITAS KAMU TAK DIKENALI !! ");
+    };
+
+    if (p<6)/*IF (j<6)digunakan jika Jabatan yg dipilih adalah 1-5 maka muncul perintah dibawahnya */
+    {
+        printf("\n\n\n\t\t Lama hari kerja pada bulan ini : ");scanf("%f",&hk);}
+    if (hk>31)
+    {
+            printf("\n\t\t Maaf data yang masukkan melewati batas jumlah hari dalam sebulan. \n\n\n",nm);}
+    if (hk<=31)
+    {
+    switch(p)
+    {
+
+    case 1:
+    gk=hk*500000; /* Rumus ini menyesuaikan gaji harian berdasarkan posisi kerja team manager */
+    k=5000000;
+    tg=(gk+k);
+    printf("\n\n\t\t Upah bulanan anda                               : Rp %.0f",gk);
+    printf("\n\t\t Asuransi Kesehatan                              : Rp 5000000");
+    printf("\n\t\t                                                   ------------+");
+    printf ("\n\t\t Total gaji yang anda terima sejumlah            : Rp %.0f",tg);
+    break;
+
+    case 2:
+    gk=hk*350000; /* Rumus ini menyesuaikan gaji harian berdasarkan posisi kerja marketing */
+    k=3500000;
+    tg=(gk+k);
+    printf("\n\n\t\t Upah bulanan anda                               : Rp %.0f",gk);
+    printf("\n\t\t Asuransi Kesehatan                              : Rp 3500000");
+    printf("\n\t\t                                                   ------------+");
+    printf ("\n\t\t Total gaji yang anda terima sejumlah            : Rp %.0f",tg);
+    break;
+
+    case 3:
+    gk=hk*183000; /* Rumus ini menyesuaikan gaji harian berdasarkan posisi kerja creative */
+    k=1830000;
+    tg=(gk+k);
+    printf("\n\n\t\t Upah bulanan anda                               : Rp %.0f",gk);
+    printf("\n\t\t Asuransi Kesehatan                              : Rp 1830000");
+    printf("\n\t\t                                                   ------------+");
+    printf ("\n\t\t Total gaji yang anda terima sejumlah            : Rp %.0f",tg);
+    break;
+
+    case 4:
+    gk=hk*283000; /* Rumus ini menyesuaikan gaji harian berdasarkan posisi kerja player */
+    k=2830000;
+    tg=(gk+k);
+    printf("\n\n\t\t Upah bulanan anda                               : Rp %.0f",gk);
+    printf("\n\t\t Asuransi Kesehatan                              : Rp 2830000");
+    printf("\n\t\t                                                   ------------+");
+    printf ("\n\t\t Total gaji yang anda terima sejumlah            : Rp %.0f",tg);
+    break;
+
+    default:
+    printf ("\n\n\n\t\t SILAHKAN ULANGI KEMBALI. \n\n\n");
+
+    }}
+    if (p<6)
+    if (hk<=31){
+    printf("\n\n\t\t =================================================================== \n");
+    printf("\t\t\t SILAHKAN BAWA PRINT OUT KE BAGIAN ADMINISTRASI");
+    printf("\n\t\t =================================================================== \n\n");
+    printf("\n                                                     created by : Group 6 from 2IA03");
+    printf(" ");scanf("%d",x);}
+    return 0;
+}
+</code></pre>
   <script type="text/javascript">
     $(document).ready(function() {
       $('pre').each(function(i, block) {
